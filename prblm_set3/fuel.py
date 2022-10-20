@@ -7,16 +7,19 @@ def fuel():
             y = int(y)
             if x > y:
                 continue
-            formula = x / y
-            answer = f"{str(formula).strip('0.')}%"
+            result = x / y
+            result *= 100
+            result = round(result)
+            result = int(result)
+
         except (ValueError, ZeroDivisionError):
             pass
         else:
-            if x == y:
-                return "F"
-            elif x == 0:
+            if result <= 1:
                 return "E"
+            elif result >= 99:
+                return "F"
             else:
-                return answer
+                return f"{result}%"
 
 print(fuel())
