@@ -11,7 +11,6 @@ def fuel():
             result *= 100
             result = round(result)
             result = int(result)
-
         except (ValueError, ZeroDivisionError):
             pass
         else:
@@ -21,5 +20,6 @@ def fuel():
                 return "F"
             else:
                 return f"{result}%"
+
 
 print(fuel())
