@@ -1,6 +1,3 @@
-from itertools import product
-
-
 items = []
 
 while True:
