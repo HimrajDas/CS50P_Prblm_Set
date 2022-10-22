@@ -20,10 +20,4 @@ while True:
     except KeyError:
         pass
     except EOFError:
-            quit()
-
-
-
-           
-
-
+        exit()
