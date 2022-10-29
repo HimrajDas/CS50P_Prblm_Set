@@ -2,7 +2,7 @@ items = []
 
 while True:
     try:
-        product = input("")
+        product = input("").lower()
         items.append(product)
     except EOFError:
         for index, item in enumerate(set(items)):
