@@ -9,7 +9,7 @@ while True:
     try:
         level = int(input("Level: "))
         guess_number = int(input("Guess: "))
-    except level < 0:
+    except level < 0 or ValueError:
         continue
     else:
         rndm_number = random.randint(1, level)
