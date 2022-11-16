@@ -9,11 +9,12 @@ while True:
     try:
         level = int(input("Level: "))
         guess_number = int(input("Guess: "))
-    except level < 0 or ValueError:
+    except (ValueError, TypeError):
+        continue
+    except level < 0:
         continue
     else:
         rndm_number = random.randint(1, level)
-        print(rndm_number)
         if guess_number > rndm_number:
             print("Too large!")
         elif guess_number < rndm_number:

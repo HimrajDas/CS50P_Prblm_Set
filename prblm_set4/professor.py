@@ -1,21 +1,51 @@
 import random
 
+
 def main():
-    count = 10
     score = 0
     level = get_level()
-    while count > 0:
-        num1 = generate_integer(level)
-        num2 = generate_integer(level)
-        ans = num1 + num2
-        
+    for i in range(10):
+        chance = 3
+        x = generate_integer(level)
+        y = generate_integer(level)
+        ans = x + y
+        while True:
+            try:
+                user_ans = int(input(f"{x} + {y} = "))
+                break
+            except ValueError:
+                chance -= 1
+                if chance == 0:
+                    print(ans)
+                    break
+                print("EEE")
+                continue
+        if user_ans != ans:
+            while user_ans != ans:
+                try:
+                    chance -= 1
+                    if chance == 0:
+                        print(ans)
+                        break
+                    print("EEE")
+                    user_ans = int(input(f"{x} + {y} = "))
+                except ValueError:
+                    chance -= 1
+                    print("EEE")
+        if user_ans == ans:
+            score += 1
 
-
-
+    print(f"Score: {score}")
 
 
 def get_level():
-    return int(input("Level: "))
+    while True:
+        try:
+            level = int(input("Level: "))
+            if 1 <= level <= 3:
+                return level
+        except ValueError:
+            continue
 
 
 def generate_integer(level):
